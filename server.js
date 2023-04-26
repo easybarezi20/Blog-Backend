@@ -16,10 +16,18 @@ app.use(express.json());
 const cors = require("cors");
 const morgan = require("morgan");
 
+const { postsController} = require("./controller")
+
+// middleware
+const customMiddleware = (req,res,next) => {
+    console.log("middleware executed!!");
+    next()
+  }
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/posts", postsController);
 
 
 //test route

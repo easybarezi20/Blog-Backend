@@ -2,7 +2,7 @@
   
   const PostsSchema = new mongoose.Schema(
     {
-        Header:{
+        header:{
             type: String,
             required: true,
         },
